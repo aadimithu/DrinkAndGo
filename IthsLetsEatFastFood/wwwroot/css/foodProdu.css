@@ -1,0 +1,12 @@
+﻿
+.Produ-image {
+    height: 300px;
+    width: 300px;
+    overflow: hidden;
+    
+}
+.produ-image img{
+    width:100%;
+}
+    
+

@@ -1,0 +1,78 @@
+﻿@model Drinko.ViewModel.CartViewModel
+
+@{
+    ViewData["Title"] = "Cart";
+
+}
+
+
+<h1>Cart</h1>
+
+<form method="post" asp-action="MyOrder">
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Name
+                </th>
+                <th>
+                    Amount
+                </th>
+                <th>
+                    Price
+                </th>
+               
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (int i = 0; i < Model.Products.Count; i++)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => modelItem.Products[i].Product.Name)
+                        @Html.HiddenFor(modelItem => modelItem.Products[i].Product.Name)
+                    </td>
+                    <td>
+                        @Html.EditorFor(modelItem => modelItem.Products[i].Amount, new { htmlAttributes = new { @id = "qty" } })
+                        @*<span id="qty" value="FoodProducts[i].Amount"></span>*@
+                        @Html.HiddenFor(modelItem => modelItem.Products[i].Amount)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => modelItem.Products[i].Product.Price, new { htmlAttributes = new { @id = "price" } })
+                        @Html.HiddenFor(modelItem => modelItem.Products[i].Product.Price)
+                    </td>
+                    <td>
+
+                         @Html.ActionLink("Delete", "Delete", new {@id=@Model.Products[i].Product.Id })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <div>
+        Grand Total: @Model.TotalPrice.ToString("C")
+        <label id="total"></label>
+
+        <input type="submit" class="float-right btn btn-success" value="Order" />
+        @*<input type="button" class="float-rig@*ht btn btn-success" value="cal" onclick="calcTotal()" />*@
+    </div>
+    @Html.HiddenFor(modelItem => modelItem.TotalPrice)
+    <br />
+    <br />
+    <a asp-controller="FoodProduct" asp-action="Index">Continue Shopping</a>
+
+</form>
+@*<script>
+
+    function calcTotal() {
+        
+        var amount = document.getElementById('qty').value;
+        var price = document.getElementById('price').value;
+        var result = amount * price;
+        console.log(result);
+    }
+   
+
+</script>*@
