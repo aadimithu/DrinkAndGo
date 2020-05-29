@@ -69,10 +69,10 @@ namespace Drinko.Controllers
             }
             else
             {
-                var foodProduct = _ProductRepository.GetFoodProById(id);
+                var Product = _ProductRepository.GetProById(id);
                 CartItem newCartItem = new CartItem()
                 {
-                    Product = foodProduct,
+                    Product = Product,
                     Amount = 1
                 };
                 cartItems.Add(newCartItem);

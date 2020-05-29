@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
-using Drinko.Models;
-using Drinko.Repository;
+using ProductService.Model;
+using ProductService.Repository;
 
 
-namespace Drinko.Repository
+namespace ProductService.Repository
 {
     
     public class MockProductRepository: IProductRepository

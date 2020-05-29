@@ -23,7 +23,7 @@ namespace Drinko.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "AspNetRoleClaims",
+                name: "AspNetUsers",
                 columns: table => new
                 {
                     Id = table.Column<string>(nullable: false),

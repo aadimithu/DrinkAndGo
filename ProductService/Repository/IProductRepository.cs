@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Drinko.Models;
+using ProductService.Model;
 
-namespace Drinko.Repository
+namespace ProductService.Repository
 {
     public interface IProductRepository
     {
