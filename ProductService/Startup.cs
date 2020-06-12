@@ -38,6 +38,10 @@ namespace ProductService
 
             app.UseHttpsRedirection();
 
+
+            app.UseStaticFiles();
+            app.UseCookiePolicy();
+
             app.UseRouting();
 
             app.UseAuthorization();

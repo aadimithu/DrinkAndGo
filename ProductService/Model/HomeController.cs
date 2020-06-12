@@ -5,11 +5,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using Drinko.Models;
-using Drinko.Repository;
+using ProductService.Model;
+using ProductService.Repository;
 using Microsoft.AspNetCore.Http;
 
-namespace Drinko.Controllers
+namespace ProductService.Controllers
 {
     public class HomeController : Controller
     {

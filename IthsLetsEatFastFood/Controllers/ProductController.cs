@@ -23,17 +23,17 @@ namespace Drinko.Controllers
         private const string sessionKeyUserId = "_userId";
 
 
-        public ProductController(IProductRepository foodProductRepository, UserManager<ApplicationUser> userManager)
+        public ProductController(IProductRepository ProductRepository, UserManager<ApplicationUser> userManager)
         {
-            _ProductRepository = foodProductRepository;
+            _ProductRepository = ProductRepository;
             _userManager = userManager;
         }
 
 
         public IActionResult Index()
         {
-            var foodProducts = _ProductRepository.GetAll();
-            return View(foodProducts);
+            var Products = _ProductRepository.GetAll();
+            return View(Products);
            
         }
  
@@ -63,8 +63,8 @@ namespace Drinko.Controllers
             }
             if (currentCartItems != null && currentCartItems.Any(fp => fp.Product.Id == id))
             {
-                int foodProductIndex = currentCartItems.FindIndex(fp => fp.Product.Id == id);
-                currentCartItems[foodProductIndex].Amount += 1;
+                int ProductIndex = currentCartItems.FindIndex(fp => fp.Product.Id == id);
+                currentCartItems[ProductIndex].Amount += 1;
                 cartItems = currentCartItems;
             }
             else
